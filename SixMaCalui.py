@@ -28,15 +28,14 @@ def cleardata():
    
 
 def x_barcal():
-    
     x_bar = 0
     usernumber = int(userinput_number.get())  # Convert user input to an integer
     for j in range(usernumber):
         x_bar += int(list_data[j].get())  # Retrieve the value using get() method
         j += 1
-        
-
     result_label.config(text="x̄ = %f Σx = %d" %(x_bar / usernumber,x_bar))
+    
+
 def clear_entries():
     global check_btn,clear_button
     for entry in list_data:
