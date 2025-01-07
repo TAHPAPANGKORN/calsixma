@@ -8,32 +8,32 @@ list_data = []
 
 
 
-def addlist():
+def addList():
     global check_btn
     if check_btn == True:
-        usernumber = int(userinput_number.get())
+        userNumber = int(userInputNumber.get())
         clear_entries()
-        for i in range(usernumber):
-            userinput_x = tk.Entry(second_frame)
-            userinput_x.pack(pady=2)  
-            list_data.append(userinput_x)
-        cleardata()
+        for i in range(userNumber):
+            userInputX = tk.Entry(second_frame)
+            userInputX.pack(pady=2)  
+            list_data.append(userInputX)
+        clearData()
         check_btn = False
     
 
-def cleardata():
+def clearData():
     global clear_button
     clear_button = tk.Button(root, text="Clear Number", command=clear_entries ,bg="red" ,fg="white")
     clear_button.pack(side="bottom" ,pady=10)
    
 
-def x_barcal():
+def xBarCal():
     x_bar = 0
-    usernumber = int(userinput_number.get())  # Convert user input to an integer
-    for j in range(usernumber):
+    userNumber = int(userInputNumber.get())  # Convert user input to an integer
+    for j in range(userNumber):
         x_bar += int(list_data[j].get())  # Retrieve the value using get() method
         j += 1
-    result_label.config(text="x̄ = %f Σx = %d" %(x_bar / usernumber,x_bar))
+    result_label.config(text="x̄ = %f Σx = %d" %(x_bar / userNumber,x_bar))
     
 
 def clear_entries():
@@ -48,8 +48,8 @@ def clear_entries():
 
 
 def on_entry_click(event):
-    if userinput_number.get() == "Enter N":
-        userinput_number.delete(0, "end")
+    if userInputNumber.get() == "Enter N":
+        userInputNumber.delete(0, "end")
 
         
 root = tk.Tk()
@@ -79,21 +79,21 @@ my_canvas.create_window((0,0), window=second_frame, anchor="nw")
 
 
 
-userinput_number_label = tk.Label(second_frame, text="Xbar Cal by tartah")
-userinput_number_label.pack(padx=50)
+userInputNumberLabel = tk.Label(second_frame, text="Xbar Cal by tartah")
+userInputNumberLabel.pack(padx=50)
 
-userinput_number = tk.Entry(second_frame, textvariable=tk.StringVar())
-userinput_number.insert(0, "Enter N")
-userinput_number.bind("<FocusIn>", on_entry_click)
-userinput_number.pack(pady=10)
+userInputNumber = tk.Entry(second_frame, textvariable=tk.StringVar())
+userInputNumber.insert(0, "Enter N")
+userInputNumber.bind("<FocusIn>", on_entry_click)
+userInputNumber.pack(pady=10)
 
 
 
-calculate_button = tk.Button(second_frame, text="Enter", command=addlist )  
+calculate_button = tk.Button(second_frame, text="Enter", command=addList )  
 calculate_button.pack() 
 
 
-calculate_button = tk.Button(root, text="Calculate", command=x_barcal,bg="green",fg="white") 
+calculate_button = tk.Button(root, text="Calculate", command=xBarCal,bg="green",fg="white") 
 calculate_button.pack(side="bottom", pady=20)   
 
 
